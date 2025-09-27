@@ -1,8 +1,15 @@
 <?php
+// Output buffering başlat - header hatalarını önlemek için
+ob_start();
+
 require __DIR__ . '/includes/config.php';
 require __DIR__ . '/includes/auth.php';
 
-if (isAdminLoggedIn()) { header('Location: index.php'); exit; }
+if (isAdminLoggedIn()) { 
+    ob_end_clean(); // Buffer'ı temizle
+    header('Location: index.php'); 
+    exit; 
+}
 
 $error = '';
 if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
@@ -19,6 +26,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 	} elseif ($email === false) {
 		$error = 'Düzgün e-poçt ünvanı daxil edin';
 	} else if (adminLogin($pdo, $email, $password)) {
+		ob_end_clean(); // Buffer'ı temizle
 		header('Location: index.php');
 		exit;
 	} else {
@@ -26,6 +34,9 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
 	}
 }
 $csrf = csrfToken();
+
+// Buffer'ı temizle ve HTML çıktısını başlat
+ob_end_clean();
 ?>
 <!doctype html>
 <html lang="az">
@@ -199,5 +210,3 @@ $csrf = csrfToken();
     </div>
 </body>
 </html>
-
-
