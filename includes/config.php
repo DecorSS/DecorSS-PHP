@@ -5,8 +5,8 @@ declare(strict_types=1);
 require_once __DIR__ . '/../admin/d6JXwyy12M/includes/security.php';
 
 $dsn = 'mysql:host=13.61.139.31;port=3306;dbname=decorss;charset=utf8mb4';
-$dbUser = 'root';
-$dbPass = '@Bura-Girme1991';
+$dbUser = 'render_user';
+$dbPass = 'Girme1991-@Bura';
 
 $options = [
 	PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
