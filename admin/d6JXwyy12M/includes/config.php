@@ -19,13 +19,21 @@ $options = [
 
 $pdo = new PDO($dsn, $dbUser, $dbPass, $options);
 
+// Session ayarlarını session başlatılmadan önce yap
+ini_set('session.cookie_httponly', 1);
+ini_set('session.cookie_secure', isset($_SERVER['HTTPS']));
+ini_set('session.use_strict_mode', 1);
+ini_set('session.cookie_samesite', 'Strict');
+
 session_name('decorss_admin');
 session_start();
 
 // Session güvenliğini kontrol et
 if (!secureSession()) {
+    // Buffer varsa temizle
+    if (ob_get_level()) {
+        ob_end_clean();
+    }
     header('Location: login.php');
     exit;
 }
-
-
