@@ -1,6 +1,6 @@
 <nav class="navbar">
     <div class="logo">
-        <img src="assets/images/logo_icon/ss_ganja_logo.png" alt="Decor SS Ganja">
+        <img src="/assets/images/logo_icon/ss_ganja_logo.png" alt="Decor SS Ganja">
         <a href="index.php" class="no-color-change">Decor SS Ganja</a>
     </div>
     <ul class="nav-links">
@@ -12,4 +12,5 @@
         <li><a href="index.php#Rezervasiya" class="book-now-btn">Rezervasiya</a></li>
     </ul>
 </nav>
+
 
