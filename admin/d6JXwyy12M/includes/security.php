@@ -259,12 +259,6 @@ function setSecurityHeaders() {
  * Session güvenliği
  */
 function secureSession() {
-    // Session cookie güvenliği
-    ini_set('session.cookie_httponly', 1);
-    ini_set('session.cookie_secure', isset($_SERVER['HTTPS']));
-    ini_set('session.use_strict_mode', 1);
-    ini_set('session.cookie_samesite', 'Strict');
-    
     // Session hijacking koruması
     if (!isset($_SESSION['user_agent'])) {
         $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'] ?? '';
