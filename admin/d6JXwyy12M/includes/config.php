@@ -7,7 +7,7 @@ require_once __DIR__ . '/security.php';
 // Güvenlik header'larını ayarla
 setSecurityHeaders();
 
-$dsn = 'mysql:host=127.0.0.1;port=3306;dbname=decorss;charset=utf8mb4';
+$dsn = 'mysql:host=13.61.139.31;port=3306;dbname=decorss;charset=utf8mb4';
 $dbUser = 'root';
 $dbPass = '@Bura-Girme1991';
 
