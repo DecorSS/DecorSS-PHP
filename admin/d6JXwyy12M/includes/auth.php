@@ -30,6 +30,10 @@ function isAdminLoggedIn(): bool {
 if (!function_exists('requireAdmin')) {
 function requireAdmin(): void {
 	if (!isAdminLoggedIn()) {
+		// Buffer varsa temizle
+		if (ob_get_level()) {
+			ob_end_clean();
+		}
 		header('Location: login.php');
 		exit;
 	}
@@ -78,5 +82,3 @@ function adminLogout(): void {
 	session_destroy();
 }
 }
-
-
